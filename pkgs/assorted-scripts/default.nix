@@ -17,6 +17,8 @@ stdenv.mkDerivation rec {
   dontStrip = true;
   dontPatchELF = true;
 
+  postFixup = ./post-fixup.sh;
+
   meta = {
     description = "A collection of barely useful scripts";
     homepage = https://github.com/samuelrivas/assorted-scripts;

@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
+#
+# We just need to copy the scripts and the templates to the right place here. We
+# still call the generic builder so that we get the standard fixes run,
+# specifically the rewrite of the shebangs.
 
 source "$stdenv/setup"
 
