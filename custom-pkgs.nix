@@ -7,6 +7,9 @@ let
 
   self = {
     assorted-scripts = callPackage ./pkgs/assorted-scripts { };
+
+    udp-cat-debug = callPackage ./pkgs/udp-cat { debug = true; };
+    udp-cat       = callPackage ./pkgs/udp-cat { debug = false; };
   };
 in
 self
