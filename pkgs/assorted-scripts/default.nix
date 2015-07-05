@@ -11,12 +11,12 @@ stdenv.mkDerivation rec {
   };
 
   buildInputs = [ ];
-  builder = ./builder.sh;
 
   dontBuild = true;
   dontStrip = true;
   dontPatchELF = true;
 
+  installPhase = ./install.sh;
   postFixup = ./post-fixup.sh;
 
   meta = {
