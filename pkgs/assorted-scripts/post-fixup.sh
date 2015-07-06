@@ -23,7 +23,7 @@ main() {
     local templated_script;
     local templated_scripts;
 
-    templated_scripts=( $(grep -lr templates) )
+    templated_scripts=( $(grep -l templates *.sh) )
 
     for templated_script in "${templated_scripts[@]}"; do
         echo  "$templated_script"
