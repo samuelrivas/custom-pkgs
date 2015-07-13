@@ -10,6 +10,8 @@ let
 
     udp-cat-debug = callPackage ./pkgs/udp-cat { debug = true; };
     udp-cat       = callPackage ./pkgs/udp-cat { debug = false; };
+
+    java-ggp-base = callPackage ./pkgs/java-ggp-base { };
   };
 in
 self
