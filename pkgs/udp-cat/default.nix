@@ -14,8 +14,7 @@ stdenv.mkDerivation rec {
   dontStrip = debug;
 
   installPhase = ''
-      mkdir -p "$out/bin"
-      cp "udp-cat" "$out/bin"
+    installBin udp-cat
   '';
 
   meta = {
