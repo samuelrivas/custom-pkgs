@@ -14,6 +14,7 @@ let
     java-ggp-base = callPackage ./pkgs/java-ggp-base { };
 
     findbugs-jsr305-jar = callPackage ./pkgs/hacks/jars/findbugs-jsr305 { };
+    inject-jsr330-jar   = callPackage ./pkgs/hacks/jars/inject-jsr330 { };
   };
 in
 self
