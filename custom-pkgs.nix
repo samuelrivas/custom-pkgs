@@ -12,6 +12,8 @@ let
     udp-cat       = callPackage ./pkgs/udp-cat { debug = false; };
 
     java-ggp-base = callPackage ./pkgs/java-ggp-base { };
+
+    findbugs-jsr305-jar = callPackage ./pkgs/hacks/jars/findbugs-jsr305 { };
   };
 in
 self
