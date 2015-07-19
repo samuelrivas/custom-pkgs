@@ -12,6 +12,7 @@ let
     udp-cat       = callPackage ./pkgs/udp-cat { debug = false; };
 
     java-ggp-base = callPackage ./pkgs/java-ggp-base { };
+    java-guava    = callPackage ./pkgs/java-guava { };
 
     findbugs-jsr305-jar = callPackage ./pkgs/hacks/jars/findbugs-jsr305 { };
     inject-jsr330-jar   = callPackage ./pkgs/hacks/jars/inject-jsr330 { };
