@@ -10,6 +10,8 @@ let
 
     udp-cat-debug = callPackage ./pkgs/udp-cat { debug = true; };
     udp-cat       = callPackage ./pkgs/udp-cat { debug = false; };
+
+    colorhug-client = callPackage ./pkgs/colorhug-client { };
   };
 in
 self
