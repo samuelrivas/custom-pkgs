@@ -3,7 +3,10 @@
 let
   pkgs = import <nixpkgs> { inherit system; };
 
-  callPackage = pkgs.lib.callPackageWith (pkgs // pkgs.xlibs // self);
+  callPackage = pkgs.lib.callPackageWith (pkgs
+                                       // pkgs.xlibs
+                                       // pkgs.gnome3
+                                       // self);
 
   self = {
     assorted-scripts = callPackage ./pkgs/assorted-scripts { };
@@ -11,7 +14,10 @@ let
     udp-cat-debug = callPackage ./pkgs/udp-cat { debug = true; };
     udp-cat       = callPackage ./pkgs/udp-cat { debug = false; };
 
-    colorhug-client = callPackage ./pkgs/colorhug-client { };
+    colorhug-client =
+      callPackage ./pkgs/colorhug-client { automake = pkgs.automake115x; };
+
+    colord = callPackage ./pkgs/colord { automake = pkgs.automake115x; };
   };
 in
 self
