@@ -1,5 +1,12 @@
+# Broken:
+#
+# Yelp tools need to be added in, otherwise compilation fails (not checked by
+# config)
+#
+# passing docbook2x as buildinput triggers man page generation, but that fails
 { stdenv, fetchzip, itstool, gusb, pkgconfig, intltool, glib, libxml2, libusb,
-  gtk3, colord }:
+  gtk3, colord, colord-gtk, libsoup, bashCompletion, automake, autoconf,
+  docbook2x, yelp_tools}:
 
 let
   version = "0.2.7";
@@ -14,7 +21,8 @@ stdenv.mkDerivation rec {
   };
 
   buildInputs = [ itstool gusb pkgconfig intltool glib libxml2 libusb gtk3
-                  colord ];
+                  colord colord-gtk libsoup bashCompletion automake autoconf
+                  yelp_tools ];
 
   meta = {
     description = "Client tools for the colorhug colorimeter";
