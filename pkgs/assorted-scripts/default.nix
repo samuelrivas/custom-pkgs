@@ -1,7 +1,7 @@
-{ stdenv, fetchFromGitHub, xbacklight }:
+{ stdenv, fetchFromGitHub, xbacklight, xrandr, xset }:
 
 stdenv.mkDerivation rec {
-  name = "assorted-scripts-0.0.1";
+  name = "assorted-scripts-0.0.2";
 
   src = fetchFromGitHub {
     owner = "samuelrivas";
@@ -10,7 +10,7 @@ stdenv.mkDerivation rec {
     sha256 = "1l3jyqgddd0lm0macxap8sz83hjzqwi1frynlikd3gxlafrrvidy";
   };
 
-  inherit xbacklight;
+  inherit xbacklight xrandr xset;
 
   buildInputs = [ ];
 

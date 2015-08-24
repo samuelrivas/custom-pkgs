@@ -49,6 +49,12 @@ main() {
         "/usr/bin/xbacklight"           \
         "$xbacklight/bin/xbacklight"
 
+    echo "patching call to xrandr in screen-control.sh"
+    fix_command_call "$out/bin/screen-control.sh" "xrandr" "$xrandr/bin/xrandr"
+
+    echo "patching call to xset in screen-control.sh"
+    fix_command_call "$out/bin/screen-control.sh" "xset" "$xset/bin/xset"
+
     echo $PWD
 }
 
