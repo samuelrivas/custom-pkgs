@@ -8,7 +8,7 @@ let
                                        // pkgs.gnome3
                                        // self);
 
-  self = {
+  self = rec {
     assorted-scripts = callPackage ./pkgs/assorted-scripts { };
 
     udp-cat-debug = callPackage ./pkgs/udp-cat { debug = true; };
@@ -18,6 +18,7 @@ let
       callPackage ./pkgs/colorhug-client { automake = pkgs.automake115x; };
 
     colord = callPackage ./pkgs/colord { automake = pkgs.automake115x; };
+    colord-gtk = pkgs.colord-gtk.override { inherit colord; };
   };
 in
 self

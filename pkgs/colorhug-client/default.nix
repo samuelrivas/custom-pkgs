@@ -20,6 +20,10 @@ stdenv.mkDerivation rec {
     sha256 = "054fikivwscai9fyi3w1783vw7gswp318fvmylq2cqdg9nfgpghr";
   };
 
+  configureFlags = [
+    "--disable-bash-completion"
+  ];
+
   buildInputs = [ itstool gusb pkgconfig intltool glib libxml2 libusb gtk3
                   colord colord-gtk libsoup bashCompletion automake autoconf
                   yelp_tools ];
@@ -31,4 +35,3 @@ stdenv.mkDerivation rec {
     maintainers = [ "Samuel Rivas <samuelrivas@gmail.com>" ];
   };
 }
-
