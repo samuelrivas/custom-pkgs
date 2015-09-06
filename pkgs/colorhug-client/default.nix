@@ -4,6 +4,8 @@
 # config)
 #
 # passing docbook2x as buildinput triggers man page generation, but that fails
+#
+# Need to install bash-completion myself
 { stdenv, fetchzip, itstool, gusb, pkgconfig, intltool, glib, libxml2, libusb,
   gtk3, colord, colord-gtk, libsoup, bashCompletion, automake, autoconf,
   docbook2x, yelp_tools}:
