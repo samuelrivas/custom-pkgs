@@ -12,6 +12,7 @@ let
     udp-cat       = callPackage ./pkgs/udp-cat { debug = false; };
 
     jam       = callPackage ./pkgs/jam { };
+    argyllcms = callPackage ./pkgs/argyllcms { };
   };
 in
 self
