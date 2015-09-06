@@ -19,6 +19,8 @@ let
 
     colord = callPackage ./pkgs/colord { automake = pkgs.automake115x; };
     colord-gtk = pkgs.colord-gtk.override { inherit colord; };
+
+    argyllcms = callPackage ./pkgs/argyllcms { };
   };
 in
 self
