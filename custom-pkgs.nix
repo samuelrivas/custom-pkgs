@@ -21,6 +21,7 @@ let
     colord-gtk = pkgs.colord-gtk.override { inherit colord; };
 
     jam       = callPackage ./pkgs/jam { };
+    argyllcms = callPackage ./pkgs/argyllcms { };
   };
 in
 self
