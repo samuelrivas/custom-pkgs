@@ -10,6 +10,9 @@ let
 
     udp-cat-debug = callPackage ./pkgs/udp-cat { debug = true; };
     udp-cat       = callPackage ./pkgs/udp-cat { debug = false; };
+
+    jam       = callPackage ./pkgs/jam { };
+    argyllcms = callPackage ./pkgs/argyllcms { };
   };
 in
 self
