@@ -13,6 +13,10 @@ let
 
     jam       = callPackage ./pkgs/jam { };
     argyllcms = callPackage ./pkgs/argyllcms { };
+
+    colorThemeSolarized = callPackage ./pkgs/color-theme-solarized {
+      inherit (pkgs.emacsPackages) colorTheme;
+    };
   };
 in
 self
