@@ -80,8 +80,8 @@ stdenv.mkDerivation rec {
   preConfigure = ''
     cp ${jamTop} Jamtop
     substituteInPlace Makefile --replace "-j 3" "-j $NIX_BUILD_CORES"
-    # Remove tiff and jpg to be sure the nixpkgs-provided ones are used
-    rm -rf tiff jpg
+    # Remove tiff, jpg and png to be sure the nixpkgs-provided ones are used
+    rm -rf tiff jpg png
   '';
 
   buildInputs = [
@@ -95,11 +95,16 @@ stdenv.mkDerivation rec {
 
   # Install udev rules, but remove lines that set up the udev-acl
   # stuff, since that is handled by udev's own rules (70-udev-acl.rules)
+  #
+  # Move ref to a better place (there must be a way to make the install target
+  # do that for us)
   postInstall = ''
     rm -v $out/bin/License.txt
     mkdir -p $out/etc/udev/rules.d
     sed -i '/udev-acl/d' usb/55-Argyll.rules
     cp -v usb/55-Argyll.rules $out/etc/udev/rules.d/
+    mkdir -p $out/share/
+    mv $out/ref $out/share/argyllcms
   '';
 
   meta = with stdenv.lib; {
