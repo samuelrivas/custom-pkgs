@@ -18,6 +18,8 @@ let
       inherit (pkgs.emacsPackages) colorTheme;
     };
 
+    erlang-mode = callPackage ./pkgs/erlang-mode { };
+
     # TODO:
     #
     #  * Make sure we have no extra config
