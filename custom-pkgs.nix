@@ -32,14 +32,6 @@ let
       extra-config = ''
         ;; workarounds
         (require 'iso-transl) ; required for dead keys to work with ibus
-
-        ;; Erlang mode, should really use a packetised one
-        (add-to-list 'load-path "/home/samuel/local/lib/erlang/lib/tools-2.6.14/emacs")
-        (require 'erlang-start)
-
-        ;; Not sure if this is needed
-        (setq erlang-root-dir "/home/samuel/local/lib/erlang")
-        (add-to-list 'load-path "/home/samuel/projects/edts")
       '';
     };
   };
