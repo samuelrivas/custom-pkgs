@@ -131,6 +131,3 @@
 
 ;; ORG
 (setq org-catch-invisible-edits 'error)
-
-;; Nix
-(require 'nix-mode)

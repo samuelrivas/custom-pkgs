@@ -1,5 +1,5 @@
 { stdenv, writeTextFile, user, fullUserName, extraConfig, colorThemeSolarized,
-  erlangMode, haskellMode, tuaregMode, merlin, ocpIndent, utop }:
+  erlangMode, haskellMode, tuaregMode, merlin, ocpIndent, utop, nix }:
 
 stdenv.mkDerivation rec {
 
@@ -31,6 +31,9 @@ stdenv.mkDerivation rec {
       (setq merlin-command "${merlin}/bin/ocamlmerlin")
       (setq ocp-indent-path "${ocpIndent}/bin/ocp-indent")
       (setq utop-command "${utop}/bin/utop -emacs")
+
+      (add-to-list 'load-path "${nix}/share/emacs/site-lisp")
+      (require 'nix-mode)
 
       ;; Nix profile (we shouldn't need this once everything is nixed)
       (add-to-list 'load-path "/home/${user}/.nix-profile/share/emacs/site-lisp")

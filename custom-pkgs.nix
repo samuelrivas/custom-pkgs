@@ -23,9 +23,6 @@ let
     tuaregMode = callPackage ./pkgs/tuareg { };
 
     # TODO:
-    #
-    #  * Make sure we have no extra config
-    #    * create erlang-mode
     #  * Use the modes by their link, instead of feching them from the profile
     #  * Read the config for this from a file a-la configuration.nix
     samuelEmacsConfig = callPackage ./pkgs/my-emacs-config {
