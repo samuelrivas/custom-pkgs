@@ -1,5 +1,5 @@
-{ stdenv, writeTextFile, user, fullUserName, extraConfig,
-  colorThemeSolarized, erlangMode, haskellMode, tuaregMode }:
+{ stdenv, writeTextFile, user, fullUserName, extraConfig, colorThemeSolarized,
+  erlangMode, haskellMode, tuaregMode, merlin, ocpIndent, utop }:
 
 stdenv.mkDerivation rec {
 
@@ -23,7 +23,14 @@ stdenv.mkDerivation rec {
       (add-to-list 'load-path "${haskellMode}/share/emacs/site-lisp")
       (require 'haskell-mode)
 
+      (add-to-list 'load-path "${merlin}/share/emacs/site-lisp")
+      (add-to-list 'load-path "${ocpIndent}/share/emacs/site-lisp")
       (load "${tuaregMode}/share/emacs/site-lisp/tuareg-site-file")
+      (require 'merlin)
+      (require 'ocp-indent)
+      (setq merlin-command "${merlin}/bin/ocamlmerlin")
+      (setq ocp-indent-path "${ocpIndent}/bin/ocp-indent")
+      (setq utop-command "${utop}/bin/utop -emacs")
 
       ;; Nix profile (we shouldn't need this once everything is nixed)
       (add-to-list 'load-path "/home/${user}/.nix-profile/share/emacs/site-lisp")
@@ -31,7 +38,7 @@ stdenv.mkDerivation rec {
       ;; Load the static configuration
       (load "${static-config}")
 
-      ;; Extra config added by ${name} derivation
+      ;; Extra config added by the extraConfig parameter of the  derivation
       ${extraConfig}
     '';
   };

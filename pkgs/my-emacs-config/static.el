@@ -108,8 +108,6 @@
 ;; Ocaml
 ;;(setq opam-share (substring (shell-command-to-string "opam config var share") 0 -1))
 ;;(add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
-(require 'merlin)
-(require 'ocp-indent)
 
 (setq auto-mode-alist
       (append '(("\\.ml[i]?$" . tuareg-mode)
