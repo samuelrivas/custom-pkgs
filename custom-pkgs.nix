@@ -18,7 +18,9 @@ let
       inherit (pkgs.emacsPackages) colorTheme;
     };
 
-    erlang-mode = callPackage ./pkgs/erlang-mode { };
+    erlangMode = callPackage ./pkgs/erlang-mode { };
+
+    tuaregMode = callPackage ./pkgs/tuareg { };
 
     # TODO:
     #
@@ -26,10 +28,11 @@ let
     #    * create erlang-mode
     #  * Use the modes by their link, instead of feching them from the profile
     #  * Read the config for this from a file a-la configuration.nix
-    samuel-emacs-config = callPackage ./pkgs/my-emacs-config {
+    samuelEmacsConfig = callPackage ./pkgs/my-emacs-config {
+      inherit (pkgs.emacsPackages) haskellMode;
       user = "samuel";
-      full-user-name = "Samuel Rivas";
-      extra-config = ''
+      fullUserName = "Samuel Rivas";
+      extraConfig = ''
         ;; workarounds
         (require 'iso-transl) ; required for dead keys to work with ibus
       '';

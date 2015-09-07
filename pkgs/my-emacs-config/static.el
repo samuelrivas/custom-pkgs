@@ -84,7 +84,6 @@
 (add-hook 'text-mode-hook 'my-text-mode-hook)
 
 ;; Haskell
-(require 'haskell-mode)
 (custom-set-variables
   '(haskell-process-suggest-remove-import-lines t)
   '(haskell-process-auto-import-loaded-modules t)
@@ -109,7 +108,6 @@
 ;; Ocaml
 ;;(setq opam-share (substring (shell-command-to-string "opam config var share") 0 -1))
 ;;(add-to-list 'load-path (concat opam-share "/emacs/site-lisp"))
-(load "tuareg-site-file")
 (require 'merlin)
 (require 'ocp-indent)
 

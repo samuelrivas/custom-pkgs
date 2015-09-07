@@ -1,5 +1,5 @@
-{ stdenv, writeTextFile, user, full-user-name, extra-config,
-  colorThemeSolarized, erlang-mode }:
+{ stdenv, writeTextFile, user, fullUserName, extraConfig,
+  colorThemeSolarized, erlangMode, haskellMode, tuaregMode }:
 
 stdenv.mkDerivation rec {
 
@@ -14,12 +14,16 @@ stdenv.mkDerivation rec {
       (add-to-list 'custom-theme-load-path "${colorThemeSolarized}/share/emacs/site-lisp")
 
       ;; User specific info
-      (setq user-full-name "${full-user-name}")
+      (setq user-full-name "${fullUserName}")
 
       ;; Modes
-      (add-to-list 'load-path "${erlang-mode}/share/emacs/site-lisp")
+      (add-to-list 'load-path "${erlangMode}/share/emacs/site-lisp")
       (require 'erlang-start)
 
+      (add-to-list 'load-path "${haskellMode}/share/emacs/site-lisp")
+      (require 'haskell-mode)
+
+      (load "${tuaregMode}/share/emacs/site-lisp/tuareg-site-file")
 
       ;; Nix profile (we shouldn't need this once everything is nixed)
       (add-to-list 'load-path "/home/${user}/.nix-profile/share/emacs/site-lisp")
@@ -28,7 +32,7 @@ stdenv.mkDerivation rec {
       (load "${static-config}")
 
       ;; Extra config added by ${name} derivation
-      ${extra-config}
+      ${extraConfig}
     '';
   };
 
