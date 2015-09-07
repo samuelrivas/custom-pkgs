@@ -17,6 +17,10 @@ let
     colorThemeSolarized = callPackage ./pkgs/color-theme-solarized {
       inherit (pkgs.emacsPackages) colorTheme;
     };
+
+    samuel-emacs-config = callPackage ./pkgs/my-emacs-config {
+      user = "samuel";
+    };
   };
 in
 self
