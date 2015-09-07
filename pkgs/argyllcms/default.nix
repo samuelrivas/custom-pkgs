@@ -1,6 +1,3 @@
-## TODO: fix jam upstream
-##       move things in ref to a better place
-
 { stdenv, fetchzip, jam, unzip, libX11, libXxf86vm, libXrandr, libXinerama
 , libXrender, libXext, libtiff, libjpeg, libpng, libXScrnSaver, writeText
 , libXdmcp, libXau, lib, openssl, zlib }:
