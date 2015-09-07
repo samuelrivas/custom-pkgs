@@ -2,22 +2,22 @@
 
 stdenv.mkDerivation rec {
 
-  name = "${user}-emacs-config";
+  name = "emacs-config";
 
-  emacs = writeTextFile {
-    name = "${user}-emacs.el";
+  static-config = ./static.el;
+
+  base-config = writeTextFile {
+    name = "emacs-config-base.el";
     text = ''
-      ;; Color Theme
+      ;; Color Theme Path
       (add-to-list 'custom-theme-load-path "${colorThemeSolarized}/share/emacs/site-lisp")
-      (setq frame-background-mode 'dark)
-      (load-theme 'solarized t)
-      (enable-theme 'solarized)
+      (load "${static-config}")
     '';
   };
 
   buildCommand = ''
     DIR=$out/etc/${user}-config
     mkdir $DIR -p
-    ln -s ${emacs} $DIR/emacs.el
+    ln -s ${base-config} $DIR/emacs.el
   '';
 }
