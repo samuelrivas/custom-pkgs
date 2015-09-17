@@ -13,6 +13,8 @@ let
 
     jam       = callPackage ./pkgs/jam { };
     argyllcms = callPackage ./pkgs/argyllcms { };
+
+    edts = callPackage ./pkgs/edts { erlang = pkgs.erlangR16; };
   };
 in
 self
