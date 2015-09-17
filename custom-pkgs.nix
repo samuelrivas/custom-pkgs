@@ -13,6 +13,11 @@ let
 
     jam       = callPackage ./pkgs/jam { };
     argyllcms = callPackage ./pkgs/argyllcms { };
+
+    packagekit = callPackage ./pkgs/packagekit {
+      automake = pkgs.automake114x;
+    };
+    simpleScan = callPackage ./pkgs/simple-scan { };
   };
 in
 self
