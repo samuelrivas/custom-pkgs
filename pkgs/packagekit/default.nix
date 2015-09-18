@@ -39,6 +39,8 @@ stdenv.mkDerivation rec {
     systemd
   ];
 
+  configureFlags = "--with-systemdsystemunitdir=$(out)/craptorelocate --disable-bash-completion";
+
   meta = {
     description = "A DBUS packaging abstraction layer";
     longDescription = "PackageKit is a DBUS abstraction layer that allows the
