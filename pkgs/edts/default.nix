@@ -100,6 +100,7 @@ stdenv.mkDerivation rec {
     webmachine
   ];
 
+  EDTS_SKIP_SUBMODULE_UPDATE="true";
   sourceRoot = "edts-${edts-git-version}-src";
   postUnpack = ''
     for app in webmachine meck lager; do
