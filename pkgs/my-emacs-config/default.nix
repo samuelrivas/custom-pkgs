@@ -1,5 +1,17 @@
-{ stdenv, writeTextFile, user, fullUserName, extraConfig, colorThemeSolarized,
-  erlangMode, haskellMode, tuaregMode, merlin, ocpIndent, utop, nix }:
+{ colorThemeSolarized,
+  erlangMode,
+  extraConfig,
+  fullUserName,
+  haskellMode,
+  merlin,
+  nix,
+  ocpIndent,
+  stdenv,
+  tuaregMode,
+  user,
+  utop,
+  writeTextFile
+}:
 
 stdenv.mkDerivation rec {
 
