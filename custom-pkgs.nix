@@ -22,22 +22,12 @@ let
 
     tuaregMode = callPackage ./pkgs/tuareg { };
 
-    ocpBuild = callPackage ./pkgs/ocp-build {
-      inherit (pkgs.ocamlPackages_4_02_1) findlib camlp4;
-    };
-
     # TODO:
     #  * Read the config for this from a file a-la configuration.nix
     samuelEmacsConfig = callPackage ./pkgs/my-emacs-config {
       inherit (pkgs.emacs24Packages) haskellMode;
-      inherit (pkgs.ocamlPackages_4_02_1) merlin;
+      inherit (pkgs.ocamlPackages_4_02_1) merlin ocpIndent;
 
-      # Currently broken for 4.02.1
-      ocpIndent = pkgs.ocamlPackages.ocpIndent.override {
-        ocpBuild = self.ocpBuild;
-        opam = self.opam;
-        cmdliner = self.cmdliner;
-      };
       utop = self.utop;
       user = "samuel";
       fullUserName = "Samuel Rivas";
