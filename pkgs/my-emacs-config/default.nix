@@ -6,6 +6,7 @@
   merlin,
   nix,
   ocpIndent,
+  scalaMode2,
   stdenv,
   tuaregMode,
   user,
@@ -46,6 +47,9 @@ stdenv.mkDerivation rec {
 
       (add-to-list 'load-path "${nix}/share/emacs/site-lisp")
       (require 'nix-mode)
+
+      (add-to-list 'load-path "${scalaMode2}/share/emacs/site-lisp")
+      (require 'scala-mode2)
 
       ;; Nix profile (we shouldn't need this once everything is nixed)
       (add-to-list 'load-path "/home/${user}/.nix-profile/share/emacs/site-lisp")

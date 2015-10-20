@@ -27,7 +27,7 @@ let
     # TODO:
     #  * Read the config for this from a file a-la configuration.nix
     samuelEmacsConfig = callPackage ./pkgs/my-emacs-config {
-      inherit (pkgs.emacs24Packages) haskellMode tuaregMode;
+      inherit (pkgs.emacsPackages) haskellMode tuaregMode scalaMode2;
       inherit (pkgs.ocamlPackages_4_02_1) merlin ocpIndent utop;
 
       user = "samuel";
