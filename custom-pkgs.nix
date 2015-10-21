@@ -13,6 +13,8 @@ let
 
     jam       = callPackage ./pkgs/jam { };
     argyllcms = callPackage ./pkgs/argyllcms { };
+
+    spark = callPackage ./pkgs/spark { };
   };
 in
 self
